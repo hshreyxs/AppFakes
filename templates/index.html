@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>APK Analyzer</title>
+    <style>
+        /* ✅ General Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #838884, #a8aea9);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.5s;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.8s ease-in-out;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            color: #646de4;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="file"], input[type="text"] {
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        input[type="file"]:hover, input[type="text"]:hover {
+            border-color: #4CAF50;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 18px;
+            color: white;
+            background: #646de4;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        button:hover {
+            background: #45a049;
+            transform: translateY(-5px);
+        }
+
+        .features {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .features:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .features h2 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+        }
+
+        .features p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        strong {
+            color: #4CAF50;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #45a049;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            form {
+                gap: 15px;
+            }
+
+            input, button {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .features h2 {
+                font-size: 24px;
+            }
+
+            .features p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🔍 APK Analysis Tool</h1>
+    
+    <!-- ✅ Form Section -->
+    <form action="/analyze" method="POST" enctype="multipart/form-data">
+        <label for="file">📁 Upload APK or XAPK File</label>
+        <input type="file" id="file" name="file" accept=".apk, .xapk">
+
+        <label for="url">🔗 Or Provide APK URL</label>
+        <input type="text" id="url" name="url" placeholder="https://example.com/app.apk">
+
+        <button type="submit">🚀 Analyze APK</button>
+    </form>
+
+    <!-- ✅ Features Section -->
+    <div class="features">
+        <h2>✨ Key Features</h2>
+        <p><strong>✔️ Permission Analysis:</strong> Displays all permissions requested by the APK.</p>
+        <p><strong>⚠️ Malware Detection:</strong> Shows the percentage of malicious behavior with a visual chart.</p>
+        <p><strong>📊 Intuitive Graphs:</strong> Visual representation.</p>
+    </div>
+
+    <footer>
+        <p>© 2025 APK Analyzer | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

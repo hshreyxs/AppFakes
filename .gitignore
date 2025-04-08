@@ -1,0 +1,10 @@
+.vercel
+__pycache__/
+*.pyc
+*.csv
+*.xlsx
+*.pkl
+uploads/
+static/uploads/
+venv/
+.env
